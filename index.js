@@ -1,19 +1,34 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+
+  for(let i = 0; i < array.length; i++){
+
+        deficit = target - array[i]
+
+    for(let n = i + 1; n < array.length; n++){
+
+          if(array[n] === deficit) return true
+    }
+  }
+  return false
 }
 
 /* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
+  O(n2)
 */
 
 /*
-  Add written explanation of your solution here
+ iterate through the list first
+    calculate the deficit 
+    iterate through the list second time 
+      if the deficit is there return true else return false
+  
 */
 
+/*
+  iterate through the array, while iterating we subtract the target from the number in the array 
+  and check if the deficit is available in the array during the second iteration
+*/
+console.log(hasTargetSum([1,2,3,4,5], 6))
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
